@@ -1,0 +1,32 @@
+﻿<Window x:Class="ATM_UI_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ATM Machine" Height="400" Width="600">
+    <Grid>
+        <!-- Основний контейнер з двома секціями -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <!-- Секція з кнопками -->
+            <ColumnDefinition Width="*" />
+            <!-- Секція з екраном -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Контейнер для розташування кнопок -->
+        <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="0,10,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Button Content="Withdrawal" Width="150" Height="30" Click="Withdrawal_Click"/>
+            <Button Content="Deposit" Width="150" Height="30" Click="Deposit_Click"/>
+            <Button Content="Balance" Width="150" Height="30" Click="Balance_Click"/>
+            <Button Content="Exit" Width="150" Height="30" Click="Exit_Click"/>
+        </StackPanel>
+
+        <!-- Екран для виведення інформації -->
+        <TextBox x:Name="InfoScreen" Grid.Column="1" Margin="10"
+                 IsReadOnly="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" FontSize="16" />
+    </Grid>
+</Window>
