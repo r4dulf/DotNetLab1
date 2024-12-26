@@ -12,14 +12,11 @@ namespace ATM_UI_App
         {
             InitializeComponent();
 
-            // Ініціалізація банку та клієнтів
             InitializeBank();
 
-            // Відображення вікна авторизації
             LoginWindow loginWindow = new LoginWindow();
             if (loginWindow.ShowDialog() == true)
             {
-                // Перевірка аутентифікації
                 if (bank.Authenticate(loginWindow.CardNumber, loginWindow.Pin))
                 {
                     currentAccount = bank.GetAccount(loginWindow.CardNumber);
@@ -28,12 +25,12 @@ namespace ATM_UI_App
                 else
                 {
                     MessageBox.Show("Invalid card number or PIN. Access denied.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Close(); // Закриваємо головне вікно при неуспішному вході
+                    Close();
                 }
             }
             else
             {
-                Close(); // Закриваємо головне вікно при скасуванні авторизації
+                Close(); 
             }
         }
 
@@ -41,11 +38,9 @@ namespace ATM_UI_App
         {
             bank = new Bank("MyBank");
 
-            // Додавання клієнтів
             bank.AddAccount(new Account("1234567890", "John Doe", 1234, 5000m));
             bank.AddAccount(new Account("9876543210", "Jane Smith", 5678, 10000m));
 
-            // Додавання банкоматів
             bank.AddATM(new AutomatedTellerMachine("ATM-001", "123 Main Street", 20000m));
         }
 

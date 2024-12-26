@@ -10,7 +10,7 @@ namespace ATM_UI_App
         public AmountInputWindow(string prompt)
         {
             InitializeComponent();
-            PromptText.Text = prompt; // Встановлюємо текст запиту
+            PromptText.Text = prompt;
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
@@ -18,7 +18,7 @@ namespace ATM_UI_App
             if (decimal.TryParse(AmountTextBox.Text, out decimal amount) && amount > 0)
             {
                 Amount = amount;
-                this.DialogResult = true; // Закриваємо вікно з позитивним результатом
+                this.DialogResult = true;
             }
             else
             {
@@ -28,7 +28,7 @@ namespace ATM_UI_App
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false; // Скасування введення
+            this.DialogResult = false;
         }
     }
 }

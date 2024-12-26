@@ -6,11 +6,9 @@ namespace ATMApplication
     {
         public static void Main()
         {
-            // Ваша логіка для консольного додатка
             Bank bank = InitializeBank();
             Console.WriteLine("Welcome to the ATM!");
 
-            // Авторизація
             Account account = Authenticate(bank);
 
             if (account != null)
@@ -28,11 +26,9 @@ namespace ATMApplication
         {
             Bank bank = new Bank("MyBank");
 
-            // Додавання клієнтів
             bank.AddAccount(new Account("1234567890", "John Doe", 1234, 5000m));
             bank.AddAccount(new Account("9876543210", "Jane Smith", 5678, 10000m));
 
-            // Додавання банкомату
             bank.AddATM(new AutomatedTellerMachine("ATM-001", "123 Main Street", 20000m));
             return bank;
         }
