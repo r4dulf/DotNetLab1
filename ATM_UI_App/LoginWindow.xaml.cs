@@ -16,11 +16,10 @@ namespace ATM_UI_App
         {
             CardNumber = CardNumberTextBox.Text;
 
-            // Валідація PIN
             if (int.TryParse(PinPasswordBox.Password, out int pin))
             {
                 Pin = pin;
-                this.DialogResult = true; // Успішний логін
+                this.DialogResult = true;
             }
             else
             {
@@ -30,7 +29,7 @@ namespace ATM_UI_App
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false; // Скасування входу
+            this.DialogResult = false; 
         }
     }
 }
